@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-[#030305] text-slate-50 m-0 w-full h-full antialiased font-sans;
+  }
+  
+  html, #root {
+    @apply w-full h-full m-0;
+  }
+}
+
+/* Custom styles for animations or specific components */
+.glass-panel {
+  @apply bg-slate-900/30 backdrop-blur-xl border border-white/5 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] rounded-2xl;
+}
+
+/* Premium gradient text utility */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400;
+}
+
+@keyframes textShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.animate-text-shine {
+  background: linear-gradient(
+    to right,
+    #818cf8 20%,
+    #c084fc 30%,
+    #f472b6 40%,
+    #818cf8 80%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: textShine 3s linear infinite;
+}
+
+/* Custom scrollbar for a richer feel */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.6);
+}
+
+/* Badge pulse ring animation */
+@keyframes badgePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(234, 179, 8, 0.4); }
+  50%       { box-shadow: 0 0 0 12px rgba(234, 179, 8, 0); }
+}
+.badge-pulse {
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+/* XP number pop */
+@keyframes xpPop {
+  0%   { transform: scale(0.5) translateY(10px); opacity: 0; }
+  60%  { transform: scale(1.2) translateY(-4px); opacity: 1; }
+  100% { transform: scale(1) translateY(0);      opacity: 1; }
+}
+.xp-pop {
+  animation: xpPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Streak fire glow */
+@keyframes fireGlow {
+  0%, 100% { text-shadow: 0 0 8px rgba(251, 146, 60, 0.8), 0 0 20px rgba(251, 146, 60, 0.4); }
+  50%       { text-shadow: 0 0 16px rgba(251, 146, 60, 1),   0 0 40px rgba(251, 146, 60, 0.6); }
+}
+.fire-glow {
+  animation: fireGlow 1.5s ease-in-out infinite;
+}
+
+/* Completed card shine sweep */
+@keyframes shineSweep {
+  0%   { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(300%)  skewX(-15deg); }
+}
+.completed-shine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+  animation: shineSweep 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Difficulty section fade-in */
+@keyframes sectionReveal {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.section-reveal {
+  animation: sectionReveal 0.5s ease-out forwards;
+}
