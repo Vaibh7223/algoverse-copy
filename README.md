@@ -7,4 +7,5 @@ This repo contains:
 ## Deployments
 
 - **Backend health**: `https://backend-zeta-gilt-70.vercel.app/api/ai/health`
+- **Auto-deploy**: Pushes to `main` deploy via GitHub Actions
 
