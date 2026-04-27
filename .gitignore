@@ -1,0 +1,27 @@
+.DS_Store
+.idea/
+.vscode/
+
+# Node
+node_modules/
+**/node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Build outputs
+dist/
+**/dist/
+coverage/
+
+# Env and secrets
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
+!**/.env.example
+
+# Vercel local linkage
+.vercel/
+**/.vercel/
